@@ -566,3 +566,222 @@ h2.slide-subtitle {
         display: none !important;
     }
 }
+
+/* ==========================================================================
+   TABLET RESPONSIVE STYLES (< 1024px)
+   ========================================================================== */
+@media screen and (max-width: 1023px) {
+    /* Slide dimensions and spacing */
+    .slide {
+        padding: 32px;
+    }
+    
+    /* Progressive typography resizing */
+    h1.slide-title {
+        font-size: 2.1rem;
+    }
+    
+    h2.slide-subtitle {
+        font-size: 1.05rem;
+        margin-bottom: 16px;
+    }
+    
+    .academic-text {
+        font-size: 0.85rem;
+    }
+    
+    .bullet-list li {
+        font-size: 0.8rem;
+    }
+    
+    /* Cover slide scaling */
+    .cover-title {
+        font-size: 3.8rem;
+    }
+    
+    .cover-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 32px;
+    }
+    
+    .cover-meta {
+        gap: 40px;
+    }
+    
+    /* Software Pipeline Grid spacing */
+    .pipeline-container {
+        gap: 12px;
+    }
+    
+    .pipeline-step {
+        padding: 16px 12px;
+    }
+    
+    .pipeline-step h3 {
+        font-size: 0.95rem;
+    }
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVE STYLES (< 768px)
+   ========================================================================== */
+@media screen and (max-width: 767px) {
+    /* Outer layout wrapping */
+    .presentation-container {
+        padding: 16px 10px;
+        gap: 24px;
+    }
+    
+    /* A) Slide: Remove aspect-ratio, auto height, reduced padding */
+    .slide {
+        aspect-ratio: auto;
+        height: auto;
+        min-height: auto;
+        padding: 24px 20px;
+        border-radius: 12px;
+    }
+    
+    /* B) Content Layout: Single column stack, text on top, image below */
+    .slide-body {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin: 16px 0;
+    }
+    
+    .slide-body.full-width {
+        grid-template-columns: 1fr;
+    }
+    
+    /* C) Cover Page adjustments */
+    .cover-title {
+        font-size: 3rem;
+    }
+    
+    .cover-subtitle {
+        font-size: 1rem;
+        margin-bottom: 24px;
+    }
+    
+    .cover-meta {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        max-width: 100%;
+        padding-top: 16px;
+    }
+    
+    .meta-item, .meta-item.text-right {
+        text-align: left;
+    }
+    
+    /* D) Narrative Grid (Slide 3) adaptation */
+    .grid-2x2 {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    /* E) Pipeline Grid (Slide 10) adaptation and arrow removal */
+    .pipeline-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .pipeline-step::after {
+        display: none !important;
+    }
+    
+    /* F) Image Containment: Auto-height, correct fit, no overflow */
+    .content-visual {
+        min-height: 200px;
+        height: 240px;
+    }
+    
+    .placeholder-img {
+        max-height: 100%;
+        max-width: 100%;
+        width: auto;
+        height: auto;
+    }
+    
+    /* G) Header & Footer wrap layout and smaller fonts */
+    .slide-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+    
+    .slide-header .project-info {
+        text-align: left;
+    }
+    
+    .slide-footer {
+        flex-direction: row;
+        justify-content: space-between;
+        padding-top: 12px;
+        margin-top: 12px;
+    }
+    
+    /* H) Progressive Typography scaling */
+    h1.slide-title {
+        font-size: 1.8rem;
+    }
+    
+    h2.slide-subtitle {
+        font-size: 1rem;
+    }
+    
+    .academic-text {
+        font-size: 0.85rem;
+    }
+    
+    .bullet-list li {
+        font-size: 0.8rem;
+    }
+}
+
+/* ==========================================================================
+   SMALL MOBILE RESPONSIVE STYLES (< 480px)
+   ========================================================================== */
+@media screen and (max-width: 479px) {
+    /* Slide padding */
+    .slide {
+        padding: 20px 16px;
+    }
+    
+    /* H) Progressive Typography scaling for very small screens */
+    h1.slide-title {
+        font-size: 1.45rem;
+    }
+    
+    h2.slide-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .cover-title {
+        font-size: 2.2rem;
+    }
+    
+    .cover-subtitle {
+        font-size: 0.85rem;
+    }
+    
+    .academic-text {
+        font-size: 0.8rem;
+    }
+    
+    .bullet-list li {
+        font-size: 0.75rem;
+        padding-left: 20px;
+    }
+    
+    /* Header/Footer font sizing */
+    .slide-header .tagline,
+    .slide-header .project-info,
+    .slide-footer {
+        font-size: 0.7rem;
+    }
+    
+    /* Image box layout scaling */
+    .content-visual {
+        height: 180px;
+    }
+}
