@@ -1,0 +1,13 @@
+Posiziona qui le immagini per le slide della presentazione.
+I nomi dei file previsti nel codice di 'index.html' sono:
+
+- concept_concept.jpg        (Slide 2: Concept e Significato)
+- storyboard.jpg             (Slide 4: Storyboard)
+- character_turnaround.jpg   (Slide 5: Character Design)
+- modelling_rigging.jpg      (Slide 6: Modellazione e Rigging)
+- environment_texturing.jpg  (Slide 7: Environment e Texturing)
+- animation_acting.jpg       (Slide 8: Animazione e Keypose)
+- lighting_render.jpg        (Slide 9: Lighting e Render)
+- conclusions.jpg            (Slide 11: Conclusioni)
+
+Le immagini predefinite caricheranno dei bellissimi placeholder presi da internet (Unsplash/Picsum) se non inserisci subito i file locali, così potrai testare la presentazione immediatamente.

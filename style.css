@@ -1,0 +1,568 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;700;800&display=swap');
+
+:root {
+    --bg-color: #060a13;
+    --bg-card: rgba(14, 22, 43, 0.6);
+    --border-card: rgba(255, 255, 255, 0.05);
+    --text-main: #f3f7fa;
+    --text-muted: #8ea1c1;
+    --accent-cyan: #00e5ff;
+    --accent-gold: #ffb300;
+    --accent-grad-cyan: linear-gradient(135deg, #005f73, #00e5ff);
+    --accent-grad-gold: linear-gradient(135deg, #ca6702, #ffb300);
+    --accent-grad-dual: linear-gradient(135deg, #00e5ff, #ffb300);
+    --font-title: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --shadow-neon-cyan: 0 0 20px rgba(0, 229, 255, 0.2);
+    --shadow-neon-gold: 0 0 20px rgba(255, 179, 0, 0.2);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #03050a;
+    color: var(--text-main);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Slide Container for Browser View */
+.presentation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 20px;
+}
+
+/* Base Slide Style: 16:9 Aspect Ratio */
+.slide {
+    background-color: var(--bg-color);
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(0, 229, 255, 0.03) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(255, 179, 0, 0.03) 0px, transparent 50%);
+    width: 100%;
+    max-width: 1280px; /* 16:9 Ratio Reference (1280x720) */
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--border-card);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 48px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+}
+
+/* Header Slide Decorator Line */
+.slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--accent-grad-cyan);
+}
+
+.slide.theme-gold::before {
+    background: var(--accent-grad-gold);
+}
+
+.slide.theme-dual::before {
+    background: var(--accent-grad-dual);
+}
+
+/* Slide Header */
+.slide-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 10;
+}
+
+.slide-header .tagline {
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-cyan);
+}
+
+.slide.theme-gold .slide-header .tagline {
+    color: var(--accent-gold);
+}
+
+.slide.theme-dual .slide-header .tagline {
+    background: var(--accent-grad-dual);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.slide-header .project-info {
+    font-family: var(--font-title);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-align: right;
+}
+
+/* Slide Footer */
+.slide-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 16px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    z-index: 10;
+}
+
+.slide-footer .logo-ied {
+    font-family: var(--font-title);
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: var(--text-main);
+}
+
+.slide-footer .logo-ied span {
+    color: var(--accent-cyan);
+}
+
+.slide.theme-gold .slide-footer .logo-ied span {
+    color: var(--accent-gold);
+}
+
+/* Content Layouts */
+.slide-body {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin: 24px 0;
+    z-index: 10;
+}
+
+/* Layout variation: Full Width */
+.slide-body.full-width {
+    grid-template-columns: 1fr;
+}
+
+/* Slide Typography */
+h1.slide-title {
+    font-family: var(--font-title);
+    font-weight: 800;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+}
+
+h2.slide-subtitle {
+    font-family: var(--font-title);
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+}
+
+/* Cards & Content Elements */
+.content-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.academic-text {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.academic-text strong {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+/* Bullet list styled premium */
+.bullet-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.bullet-list li {
+    position: relative;
+    padding-left: 24px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.bullet-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent-cyan);
+    font-weight: bold;
+}
+
+.slide.theme-gold .bullet-list li::before {
+    color: var(--accent-gold);
+}
+
+/* Graphics and Image Placeholders */
+.content-visual {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-card);
+    background-color: rgba(4, 6, 12, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0.95;
+    transition: opacity 0.3s ease;
+    padding: 8px;
+}
+
+.placeholder-img:hover {
+    opacity: 1;
+}
+
+.visual-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(6, 10, 19, 0.9) 10%, transparent 80%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    pointer-events: none;
+}
+
+.visual-overlay span {
+    font-family: var(--font-title);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent-cyan);
+}
+
+.slide.theme-gold .visual-overlay span {
+    color: var(--accent-gold);
+}
+
+.visual-overlay p {
+    font-size: 0.8rem;
+    color: var(--text-main);
+    margin-top: 4px;
+}
+
+/* Specific Page Styles */
+/* 1. Cover Slide */
+.slide-cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    position: relative;
+}
+
+.slide-cover::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.08) 0%, transparent 70%);
+    top: 10%;
+    left: 20%;
+    z-index: 1;
+}
+
+.slide-cover::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 179, 0, 0.08) 0%, transparent 70%);
+    bottom: 10%;
+    right: 20%;
+    z-index: 1;
+}
+
+.cover-badge {
+    background: rgba(0, 229, 255, 0.08);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    color: var(--accent-cyan);
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-family: var(--font-title);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    z-index: 2;
+}
+
+.cover-title {
+    font-family: var(--font-title);
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 16px;
+    background: linear-gradient(to right, #ffffff, var(--text-muted));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.03em;
+    z-index: 2;
+}
+
+.cover-title span {
+    background: var(--accent-grad-dual);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cover-subtitle {
+    font-family: var(--font-title);
+    font-size: 1.35rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin-bottom: 48px;
+    font-weight: 400;
+    z-index: 2;
+}
+
+.cover-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 24px;
+    width: 100%;
+    max-width: 600px;
+    z-index: 2;
+}
+
+.meta-item {
+    text-align: left;
+}
+
+.meta-item.text-right {
+    text-align: right;
+}
+
+.meta-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+.meta-value {
+    font-family: var(--font-title);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+/* Grid layout variations */
+.grid-2x2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+.grid-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: 8px;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.grid-card h3 {
+    font-family: var(--font-title);
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+    color: var(--text-main);
+}
+
+.grid-card p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.grid-card .time-stamp {
+    font-family: var(--font-title);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent-cyan);
+    margin-top: 8px;
+}
+
+.slide.theme-gold .grid-card .time-stamp {
+    color: var(--accent-gold);
+}
+
+/* Pipeline Diagram Slide */
+.pipeline-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.pipeline-step {
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: 12px;
+    padding: 24px 16px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.pipeline-step:hover {
+    transform: translateY(-5px);
+}
+
+.pipeline-step::after {
+    content: '➔';
+    position: absolute;
+    right: -16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    opacity: 0.5;
+}
+
+.pipeline-step:last-child::after {
+    display: none;
+}
+
+.pipeline-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.pipeline-step h3 {
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+.pipeline-step p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.software-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--accent-cyan);
+    margin-top: 10px;
+}
+
+/* ----------------------------------------------------
+   PRINT MEDIA STYLES - Optimized for Save to PDF
+---------------------------------------------------- */
+@media print {
+    @page {
+        size: A4 landscape;
+        margin: 0;
+    }
+    
+    html, body {
+        background-color: #03050a !important;
+        color: var(--text-main) !important;
+        width: 100%;
+        height: 100%;
+        margin: 0 !important;
+        padding: 0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    
+    .presentation-container {
+        padding: 0 !important;
+        gap: 0 !important;
+        display: block !important;
+    }
+    
+    .slide {
+        width: 297mm;
+        height: 210mm; /* Force A4 page containment */
+        max-width: none !important;
+        aspect-ratio: auto !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        page-break-inside: avoid !important;
+        margin: 0 !important;
+        padding: 25mm 20mm !important; /* Perfect standard printable page margins */
+        box-sizing: border-box !important;
+    }
+
+    /* Keep the gradient background during print */
+    .slide {
+        background-color: var(--bg-color) !important;
+        background-image: 
+            radial-gradient(at 0% 0%, rgba(0, 229, 255, 0.03) 0px, transparent 50%),
+            radial-gradient(at 100% 100%, rgba(255, 179, 0, 0.03) 0px, transparent 50%) !important;
+    }
+
+    /* Avoid visual sizing issues in print */
+    .content-visual {
+        min-height: auto !important;
+        height: 110mm !important;
+    }
+
+    .slide-cover::before, .slide-cover::after {
+        display: none !important;
+    }
+}
